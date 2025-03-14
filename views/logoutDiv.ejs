@@ -1,0 +1,13 @@
+<div class="logoutDiv">
+    <% if(name != null) { %>
+    Logged in as <%= name%>
+    <% } else { %>
+    Not logged in
+    <% } %>
+    <br>
+    <% if(name != null) { %>
+    <form action="/logout" method="POST"><button class="input-button" type="submit">Logout</button></form>
+    <% } else { %>
+    <form action="/login.html" method="GET"><button class="input-button" type="submit">Login</button></form>
+    <% } %>
+</div>

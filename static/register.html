@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="register.js"></script>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Register</h2>
+        <form id="registerForm" action="/register" method="POST">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+
+            <label for="password">Password: </label><br>
+            <input type="password" id="password" name="password"><br>
+
+            <label for="password2">Repeat password: </label><br>
+            <input type="password" id="password2" name="password2"><br>
+
+            <input type="checkbox" id="ownerCheck" name="ownerCheck"><label for="ownerCheck">Register as a restaurant owner</label><br>
+
+            <div id="ownerDiv" class="hidden">
+                <h3>Restaurant</h3>
+                <label for="rName">Name:</label><br>
+                <input type="text" id="rName" name="rName"><br>
+
+                <label for="number">Phone number:</label><br>
+                <input type="text" id="number" name="number"><br>
+
+                <label>Adress:</label><br>
+                <label for="city">City:</label><br>
+                <input type="text" id="city" name="city"><br>
+
+                <label for="street">Street:</label><br>
+                <input type="text" id="street" name="street"><br>
+
+                <label for="strNumber">Street Number:</label><br>
+                <input type="text" id="strNumber" name="strNumber"><br>
+
+                <label>Open hours:</label><br>
+                <label for="open">Opening hour:</label><br>
+                <input type="time" id="open" name="open"><br>
+                <label for="close">Closing hour:</label><br>
+                <input type="time" id="close" name="close"><br><br>
+            </div><br>
+
+            <button class="input-button" type="submit">Register</button><br>
+
+        </form><br>
+        <div id="registerDiv"></div>
+        Or <form action="/login.html" method="GET"><button class="input-button" type="submit">Login</button></form>
+    </div>
+</body>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <title>Title</title>
+    <script src="manageRestaurantejs.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <%- include('logoutDiv.ejs', name) %>
+
+    <div class="center-container">
+        <h1><%= result.Name %></h1>
+        Location: <%= result.City %>, <%= result.Street %>, <%= result.StrNumber %> <br>
+        Phone number: <%= result.Number %><br>
+        Schedule: <%= result.OpenHour %>:<%= result.OpenMin %> - <%= result.CloseHour %>:<%= result.CloseMin %><br>
+
+        <% if(name != null) { %>
+        <h2>Reservations</h2>
+        <% reservations.forEach((row) => { %>
+        <div id="d<%= row.ReservationID %>">
+            Name: <%= row.Name %> <br>
+            Date: <%= row.Date %> <br>
+            Time: <%= row.Hour %>:<%= row.Min %> <br>
+
+            <% if(row.Confirmed) { %>
+            Confirmed<br>
+            <button name ="deleteReservation" id="<%= row.ReservationID %>">Delete</button>
+            <% } else { %>
+            <div id="c_<%= row.ReservationID %>">Unconfirmed</div>
+            <button name ="confirmReservation" id="confirm_<%= row.ReservationID %>">Confirm</button>
+            <button name ="deleteReservation" id="<%= row.ReservationID %>">Delete</button>
+            <br>
+            <% } %>
+        </div><br>
+        <% }) %>
+        <% if(reservations.length === 0) { %>
+            <div id="noRess">No reservations have been added</div>
+        <% }%>
+        <% } %>
+
+        <div id="picDiv">
+        <h2>Pictures</h2>
+        <% pictures.forEach((row) => { %>
+        <div id="pd_<%= row.PictureID %>">
+            <img src="/<%= row.Name %>"><br>
+            <button name ="deletePicture" id="p_<%= row.PictureID %>">Delete</button><br><br>
+        </div>
+        <% }) %>
+        <% if(pictures.length == 0) { %>
+            <div id="noPics">No pictures have been added</div>
+        <% }%>
+        </div>
+
+        <h2>Add Picture</h2>
+        <form id="newPictureForm" action="/submitNewPicture/<%= result.RestaurantID %>" method="POST" enctype="multipart/form-data">
+            <label for="pic">Add a new picture:</label><br>
+            <input type="file" id="pic" name="pic" accept="image/png, image/jpeg" required><br>
+
+            <button class="input-button" type="submit">Submit</button> <%= pictureError %>
+        </form>
+
+    </div>
+</body>

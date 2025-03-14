@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+    <title>Title</title>
+    <script src="../restaurantejs.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <%- include('logoutDiv.ejs', name) %>
+
+    <div class="center-container">
+        <h1><%= result.Name %></h1>
+        Location: <%= result.City %>, <%= result.Street %>, <%= result.StrNumber %> <br>
+        Phone number: <%= result.Number %><br>
+        Schedule: <%= result.OpenHour %>:<%= result.OpenMin %> - <%= result.CloseHour %>:<%= result.CloseMin %><br>
+
+        <% if(name != null) { %>
+        <h2>Reservations</h2>
+        <% reservations.forEach((row) => { %>
+        <div id="d<%= row.ReservationID %>">
+            Date: <%= row.Date %> <br>
+            Time: <%= row.Hour %>:<%= row.Min %> <br>
+
+            <% if(row.Confirmed) { %>
+            Confirmed
+            <% } else { %>
+            Unconfirmed
+            <% } %>
+            <br>
+
+            <% if(name != null && name == row.Name) { %>
+            <button name ="deleteReservation" id="<%= row.ReservationID %>">Delete</button>
+            <% } %>
+            <br><br>
+        </div>
+        <% }) %>
+        <% if(reservations.length === 0) { %>
+        No reservations have been added
+        <% }%>
+        <% } %>
+
+        <h2>Pictures</h2>
+        <% pictures.forEach((row) => { %>
+        <div>
+            <img src="/<%= row.Name %>">
+        </div>
+        <% }) %>
+        <% if(pictures.length == 0) { %>
+        No pictures have been added
+        <% }%>
+
+        <% if(name != null) { %>
+        <h2>Add Reservation</h2>
+        <form id="newReservationForm" action="/submitNewReservation/<%= result.RestaurantID %>" method="POST">
+            <label for="time">Time:</label><br>
+            <input type="time" id="time" name="time"><br>
+
+            <label for="date">Date:</label><br>
+            <input type="date" id="date" name="date"><br>
+
+            <button class="input-button" type="submit">Submit</button> <%= reservationError %>
+        </form>
+        <% } %>
+
+    </div>
+</body>

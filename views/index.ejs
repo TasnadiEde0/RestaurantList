@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <title>Title</title>
+    <script src="indexejs.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <%- include('logoutDiv.ejs', name) %>
+
+    <div class="center-container">
+
+        <% if (owner) { %>
+        <div>
+            <a href="/manageRestaurant">Manage your restaurant</a>
+        </div><br>
+        Other restaurants:<br>
+        <% } %>
+
+        <% result.forEach((row) => { %>
+        <div>
+            <h1 id="h<%=row.RestaurantID%>" name="restaurantDIV"><%= row.Name %></h1>
+            <div id="<%=row.RestaurantID%>" name="restaurantDIV">
+            Schedule: <%= row.OpenHour %>:<%= row.OpenMin %> - <%= row.CloseHour %>:<%= row.CloseMin %><br>
+            </div>
+            <a href="/restaurant/<%=row.RestaurantID%>">More...</a>
+        </div><br>
+        <% }) %>
+    </div>
+</body>

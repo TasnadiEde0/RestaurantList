@@ -1,0 +1,108 @@
+body {
+    background-image: url("bg.jpg");
+}
+
+p, em {
+    background-color: rgb(170, 174, 209);
+    color: rgb(27, 27, 122);
+}
+
+ol.first {
+    color: blue;
+}
+
+ol.second{
+    color: red;
+}
+
+.headerStyle {
+    color: rgb(26, 61, 39);
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    text-align: right;
+}
+
+section>h2 + ol {
+    color: greenyellow;
+    list-style-type:lower-alpha;
+}
+
+a:hover {
+    color: rgb(0, 255, 191); 
+    font-style: italic; 
+}
+
+a:active {
+    color: rgb(0, 128, 38); 
+    font-weight: bold; 
+}
+
+a:visited {
+    color: rgb(70, 0, 128); 
+    text-decoration: underline; 
+}
+
+.doubleBorder {
+    border: double black;
+    text-align: left;
+    padding-top: 50px;
+    padding-right: 100px;
+    padding-bottom: 100px;
+    padding-left: 50px;
+}
+
+tr:nth-child(even) td:nth-child(even), tr:nth-child(odd) td:nth-child(odd) {
+    background-color: #9273c4;
+}
+
+tr:nth-child(even) td:nth-child(odd), tr:nth-child(odd) td:nth-child(even) {
+    background-color: #806161;
+}
+.img2 {
+    position: relative;
+    left: 0px;
+}
+
+.img3 {
+    position: relative;
+    left: 0px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .img2 {
+        position: relative;
+        left: -100px;
+    }
+    
+    .img3 {
+        position: relative;
+        left: -200px;
+    }
+}
+
+nav {
+    background-color: #8c80a1;
+    font-size: 17px;
+}
+  
+.navi {
+    padding: 14px 16px;
+}
+
+.brPadding{
+    margin-bottom: 75px;
+}
+.brPaddingTop{
+    margin-top: 75px;
+}
+.brPaddingBoth{
+    margin-top: 75px;
+    margin-bottom: 75px;
+}
+
+
+
+
+
+

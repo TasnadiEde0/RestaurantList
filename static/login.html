@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="login.js"></script>
+</head>
+<body >
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm" action="/login" method="POST">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+
+            <label for="password">Password: </label><br>
+            <input type="password" id="password" name="password"><br>
+
+            <button class="input-button" type="submit">Login</button>
+        </form><br>
+        <div id="loginDiv"></div>
+        Or <form action="/register.html" method="GET"><button class="input-button" type="submit">Register</button></form>
+    </div>
+</body>
